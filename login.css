@@ -9,9 +9,9 @@ body {
     position: relative;
 }
 .logo {
-    position: absolute;
-    top: 20px;
-    left: 20px;
+    position: fixed;
+    top: 2px;
+    left: 2px;
 }
 .login-container {
     background-color: skyblue;
