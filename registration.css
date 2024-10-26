@@ -10,13 +10,13 @@ body {
         }
         .logo {
             position: absolute;
-            top: 20px;
-            left: 20px;
+            top: 2px;
+            left: 2px;
         }
         .register-container {
             background-color:skyblue;
             padding: 20px;
-            border-radius: 5px;
+            border-radius: 35px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             width: 300px;
         }
@@ -36,14 +36,15 @@ body {
             border-radius: 5px;
             box-sizing: border-box;
         }
-        .register-container input[type="submit"] {
+        .button {
             background-color: #5cb85c;
             color: white;
-            border: none;
+            border: dashed;
             padding: 10px;
-            border-radius: 5px;
+            border-radius: 15px;
             cursor: pointer;
             width: calc(100% - 20px); /* Full width minus padding */
+            text-align: center;
         }
         .register-container input[type="submit"]:hover {
             background-color: #4cae4c;
@@ -58,4 +59,7 @@ body {
         }
         .login-link a:hover {
             text-decoration: underline;
+        }
+        a {
+            text-decoration: none; /* Remove underline */
         }

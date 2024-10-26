@@ -15,8 +15,8 @@ body {
 }
 .login-container {
     background-color: skyblue;
-    padding: 20px;
-    border-radius: 5px;
+    padding: 25px;
+    border-radius: 30px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     width: 300px;
     text-align: center; /* Center text within the container */
@@ -34,14 +34,17 @@ body {
     border-radius: 5px;
     box-sizing: border-box; /* Include padding and border in width */
 }
-.login-container input[type="submit"] {
+.button {
     background-color: #5cb85c;
     color: white;
-    border: none;
-    height: 40px; /* Set a fixed height */
-    border-radius: 5px;
+    border: dashed;
+    padding: 10px;
+    border-radius: 15px;
     cursor: pointer;
     width: calc(100% - 20px); /* Full width minus padding */
+}
+a {
+    text-decoration: none; /* Remove underline */
 }
 .login-container input[type="submit"]:hover {
     background-color: #4cae4c;
@@ -56,3 +59,5 @@ body {
 .register-link a:hover {
     text-decoration: underline;
 }
+
+
