@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Disorders and symptoms</title>
+    <style>
+        body {
+            margin: 0;
+            height: 100vh; /* Full height */
+            display: flex;
+            flex-direction: column; /* Stack elements vertically */
+            align-items: center; /* Center horizontally */
+            justify-content: center; /* Center vertically */
+            background-color: #f0f0f0; /* Light background color */
+            font-family: Arial, sans-serif; /* Font style */
+            background: repeating-linear-gradient(
+        60deg, /* Angle of the stripes */
+        skyblue, /* Mint color replacing pink */
+        #98FF98 10px, 
+        white 10px, /* Color of the second stripe */
+        white 20px /* Height of the second stripe */
+    )
+        }
+
+        .welcome-text {
+            font-size: 60px; /* Increased font size for the welcome text */
+            color: #333; /* Text color */
+            text-align: center; /* Center the text */
+            font-weight: bolder;
+            font-style: italic;
+            text-align: center; /* Center text */
+            margin-bottom: 20px; /* Space below the title */
+        }
+
+        .container {
+            text-align: center; /* Center the dropdown */
+            margin-bottom: 20px; /* Space below the dropdown */
+        }
+
+        select {
+            padding: 10px; /* Add some padding */
+            font-size: 16px; /* Increase font size */
+            border: 1px solid #ccc; /* Border around the dropdown */
+            border-radius: 4px; /* Rounded corners */
+            cursor: pointer; /* Pointer cursor on hover */
+        }
+
+        #paragraphDisplay {
+            text-align: center; /* Center text in the paragraph display */
+            margin-top: 20px; /* Space above the paragraph display */
+            font-size: 25px; /* Font size for the paragraph */
+        }
+
+        ul {
+            list-style-type: none; /* Remove bullet points */
+            padding: 0; /* Remove padding */
+        }
+
+        .a {
+            color: skyblue; /* Link color */
+            text-decoration: underline; /* Underline links */
+        }
+        .logo {
+            position: absolute; /* Absolute positioning for the logo */
+            top: 2px; /* Space from the top */
+            left: 2px; /* Space from the left */
+            width: 180px; /* Set a width for the logo */
+            height: 120px; /* Maintain aspect ratio */
+        }
+        
+    </style>
+</head>
+<body>
+    <img src="/logo.jpg" alt="Logo" class="logo">
+    <div class="welcome-text">
+        <u>
+        <h2 class="welcome-text">Disorders and symptoms</h2>
+        </u>
+    </div>
+        <div class="container">
+            <select id="nameSelect" onchange="showParagraph()">
+                <option value="" disabled selected>Choose a Symptom</option>
+                <option value="disorder1">Dysmennorhea  (Painful Periods)</option>
+                <option value="disorder2">Amenorrhea  (Absence Of Periods) </option>
+                <option value="disorder3">Menorrhagia  (Heavy Periods)</option>
+                <option value="disorder4">Oligomenorrhea (Infrequent Periods)</option>
+                <option value="others">Others</option>
+                </select>
+        </div>
+
+        <!-- Paragraph will appear here -->
+        <div id="paragraphDisplay"></div>
+    
+
+    <script>
+        function showParagraph() {
+            var select = document.getElementById("nameSelect");
+            var paragraphDiv = document.getElementById("paragraphDisplay");
+            
+            // Object containing paragraphs with bullet points for each person
+            var paragraphs = {
+                disorder1: `
+                    <ul>
+                        <li><u><b>Dysmenorrhea (Painful Periods)</b></u></li>
+                        <br>
+                        <li><u>Symptoms:</u> Severe Cramps, Back Pain, Nausea, Headaches, and Diarrhea.</li>
+                        <br>
+                        <li><a href='medications.html'>Click here</a> for Medications</li>
+                    </ul>
+                    `,
+                disorder2: `
+                    <ul>
+                        <li><u><b>Amenorrhea (Absence of Periods)</b></u></li>
+                        <br>
+                        <li><u>Symptoms:</u> Absence of Menstrual Periods for Three or more Cycles  </li>
+                        <br>
+                        <li><a href='medications.html'>Click here</a> for Medications</li>
+                    
+                    </ul>`,
+                disorder3: `
+                    <ul>
+                        <li><b><u>Menorrhagia (Heavy Periods)</b></u></li>
+                        <br>
+                        <li><u>Symptoms:</u> Extremely Heavy Bleeding, Passing Large clots, and Periods lasting longer than a week.</li>
+                        <br>
+                        <li><a href='medications.html'>Click here</a> for Medications</li>
+                    </ul>`,
+                disorder4: `
+                    <ul>
+                        <li><b><u>Oligomenorrhea (Infrequent Periods)</b></u></li>
+                        <br>
+                        <li><u>Symptoms:</u> Irregular or infrequent Periods, often with Cycles longer than 35 days.</li>
+                        <br>
+                        <li><a href='medications.html'>Click here</a> for Medications</li>
+                    </ul>`,
+                others: `
+                    <ul>
+                        <li>Consult your Personal Doctor</li>`,
+            };
+                    
+                   
+               
+
+            // Get the selected value
+            var selectedName = select.value;
+            
+            // Display the corresponding bullet points
+            if(selectedName) {
+                paragraphDiv.innerHTML = paragraphs[selectedName];
+            }
+        }
+    </script>
+</body>
+</html>

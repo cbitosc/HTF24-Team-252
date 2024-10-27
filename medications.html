@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medications</title>
+    <style>
+        body {
+            margin: 20px;
+            height: 100vh; /* Full height */
+            display: flex;
+            flex-direction: column; /* Stack elements vertically */
+            align-items: center; /* Center horizontally */
+            justify-content: center; /* Center vertically */
+            background-color: #f0f0f0; /* Light background color */
+            font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; /* Font style */
+            
+        }
+    
+        table {
+            height:400px;
+            width: 90%; /* Set table width */
+            max-width: 1000px; /* Max width for larger screens */
+            margin: auto; /* Center the table */
+            border-collapse: collapse; /* Collapse borders */
+            background-color: white; /* Background color for the table */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Shadow for depth */
+        }
+        .welcome-text {
+            font-size: 60px; /* Increased font size for the welcome text */
+            color: #333; /* Text color */
+            text-align: center; /* Center the text */
+            
+            font-style: italic;
+            text-align: center; /* Center text */
+            margin-bottom: 20px; /* Space below the title */
+        }
+
+        th, td {
+            
+            border: 1px solid #ccc; /* Border for cells */
+            padding: 10px; /* Padding inside cells */
+            text-align: center; /* Center align text */
+            vertical-align: middle; /* Center align vertically */
+        }
+
+        th {
+            background-color: #4CAF50;
+            color: white;
+        }
+    </style>
+</head>
+<body style="background:(
+    skyblue, /* Mint color replacing pink */
+   
+)">
+
+<h1 class="welcome-text"><u>Medications for Symptoms</u></h1>
+
+<table>
+    <thead>
+        <tr>
+            <th>Disorder</th>
+            <th>Medications</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Dysmenorrhea (Painful Periods)</td>
+            <td>Pain relievers (NSAIDs like ibuprofen or naproxen) are commonly used to reduce pain. Birth control pills can help regulate hormones, which may reduce cramps</td>
+        </tr>
+        <tr>
+            <td>Amenorrhea (Absence of Periods)</td>
+            <td>Hormone therapy (such as estrogen or progestin) may be prescribed if hormonal imbalances are the cause. Lifestyle changes, like managing stress or weight, may also help.
+            </td>
+        </tr>
+        <tr>
+            <td>Menorrhagia (Heavy Periods)</td>
+            <td> NSAIDs can reduce blood loss. Birth control pills or hormonal IUDs may be recommended to regulate bleeding. Tranexamic acid, an antifibrinolytic medication, can also help reduce bleeding.
+            </td>
+        </tr>
+        <tr>
+            <td>Oligomenorrhea (Infrequent Periods)</td>
+            <td>Hormonal birth control can help regulate cycles. Treating underlying conditions (like PCOS) may also improve frequency.</td>
+        </tr>
+        
+    </tbody>
+</table>
+
+</body>
+</html>
