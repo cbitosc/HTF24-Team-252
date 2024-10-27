@@ -7,6 +7,15 @@
     <link rel="stylesheet" href="/hormonal.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
+        body{
+            background: repeating-linear-gradient(
+        60deg, /* Angle of the stripes */
+        white, /* Mint color replacing pink */
+        pink 10px, 
+        white 10px, /* Color of the second stripe */
+        white 20px /* Height of the second stripe */
+    )
+        }
         .container {
             max-width: 600px;
             margin: auto;
@@ -24,6 +33,15 @@
         .warning {
             color: orange;
             font-weight: bold;
+        }
+        a{
+            text-decoration:none ;
+            text-align: center;
+            display: flex;
+            justify-content: center; /* Center horizontally */
+            align-items: center;    /* Center vertically */
+                      /* Full height of the viewport */
+            margin: 0; 
         }
     </style>
 </head>
@@ -52,6 +70,8 @@
         <p id="errorMessage" class="error"></p> <!-- Error message area -->
         <p id="warningMessage" class="warning"></p> <!-- Warning message area -->
         <canvas id="hormoneChart" width="300" height="300"></canvas> <!-- Decreased size -->
+        <br>
+        <a href="/welcome2.html">Go Back to Home Page</a>
     </div>
 
     <script>
