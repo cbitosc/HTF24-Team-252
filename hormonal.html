@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hormone Data Collection</title>
+    <link rel="stylesheet" href="/hormonal.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body{
+            background: repeating-linear-gradient(
+        60deg, /* Angle of the stripes */
+        white, /* Mint color replacing pink */
+        pink 10px, 
+        white 10px, /* Color of the second stripe */
+        white 20px /* Height of the second stripe */
+    )
+        }
+        .container {
+            max-width: 600px;
+            margin: auto;
+            text-align: center;
+        }
+        canvas {
+            max-width: 300px; /* Adjust the max-width for the pie chart */
+            max-height: 300px; /* Adjust the max-height for the pie chart */
+            margin: 20px auto; /* Center the canvas */
+        }
+        .error {
+            color: red;
+            font-weight: bold;
+        }
+        .warning {
+            color: orange;
+            font-weight: bold;
+        }
+        a{
+            text-decoration:none ;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
+        }
+    </style>
+</head>
+<body style="background-color: pink;">
+    <img src="/logo.jpg" alt="Logo" class="logo">
+    <div class="container">
+        <h1>Hormone Data Collection</h1>
+        <form id="hormoneForm">
+            <label for="testosterone">Testosterone (%):</label>
+            <input type="number" id="testosterone" name="testosterone" required min="0" max="100"><br>
+
+            <label for="estrogen">Estrogen (%):</label>
+            <input type="number" id="estrogen" name="estrogen" required min="0" max="100"><br>
+
+            <label for="cortisol">Cortisol (%):</label>
+            <input type="number" id="cortisol" name="cortisol" required min="0" max="100"><br>
+
+            <label for="thyroid">Thyroid (%):</label>
+            <input type="number" id="thyroid" name="thyroid" required min="0" max="100"><br>
+
+            <label for="progesterone">Progesterone (%):</label>
+            <input type="number" id="progesterone" name="progesterone" required min="0" max="100"><br>
+
+            <button type="submit">Submit</button>
+        </form>
+        <p id="errorMessage" class="error"></p> <!-- Error message area -->
+        <p id="warningMessage" class="warning"></p> <!-- Warning message area -->
+        <canvas id="hormoneChart" width="300" height="300"></canvas> <!-- Decreased size -->
+        <br>
+        <a href="/welcome2.html">Go Back to Home Page</a>
+    </div>
+
+    <script>
+        // Define ideal hormone levels
+        const idealHormoneLevels = {
+            testosterone: 20,
+            estrogen: 25,
+            cortisol: 15,
+            thyroid: 10,
+            progesterone: 10
+        };
+
+        document.getElementById('hormoneForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const testosterone = parseFloat(document.getElementById('testosterone').value);
+            const estrogen = parseFloat(document.getElementById('estrogen').value);
+            const cortisol = parseFloat(document.getElementById('cortisol').value);
+            const thyroid = parseFloat(document.getElementById('thyroid').value);
+            const progesterone = parseFloat(document.getElementById('progesterone').value);
+
+            const total = testosterone + estrogen + cortisol + thyroid + progesterone;
+
+            // Check if the total exceeds 100
+            if (total > 100) {
+                document.getElementById('errorMessage').textContent = "Invalid input: The total percentage exceeds 100.";
+                document.getElementById('warningMessage').textContent = ""; // Clear warning message
+                return; // Stop further execution
+            } else {
+                document.getElementById('errorMessage').textContent = ""; // Clear error message
+            }
+
+            // Check for hormonal imbalance
+            let warningMessage = "";
+            if (Math.abs(testosterone - idealHormoneLevels.testosterone) > 5) {
+                warningMessage += "Consult your doctor due to hormonal imbalance in Testosterone. ";
+            }
+            if (Math.abs(estrogen - idealHormoneLevels.estrogen) > 5) {
+                warningMessage += "Consult your doctor due to hormonal imbalance in Estrogen. ";
+            }
+            if (Math.abs(cortisol - idealHormoneLevels.cortisol) > 5) {
+                warningMessage += "Consult your doctor due to hormonal imbalance in Cortisol. ";
+            }
+            if (Math.abs(thyroid - idealHormoneLevels.thyroid) > 5) {
+                warningMessage += "Consult your doctor due to hormonal imbalance in Thyroid. ";
+            }
+            if (Math.abs(progesterone - idealHormoneLevels.progesterone) > 5) {
+                warningMessage += "Consult your doctor due to hormonal imbalance in Progesterone. ";
+            }
+            if (warningMessage !== "") {
+                document.getElementById('warningMessage').textContent = warningMessage;
+            } else {
+                document.getElementById('warningMessage').textContent = ""; // Clear warning message
+            }
+
+            const ctx = document.getElementById('hormoneChart').getContext('2d');
+            const hormoneChart = new Chart(ctx, {
+                type: 'pie',
+                data: {
+                    labels: ['Testosterone', 'Estrogen', 'Cortisol', 'Thyroid', 'Progesterone'],
+                    datasets: [{
+                        label: 'Hormone Levels',
+                        data: [testosterone, estrogen, cortisol, thyroid, progesterone],
+                        backgroundColor: [
+                            'rgba(255, 99, 132, 0.2)',
+                            'rgba(54, 162, 235, 0.2)',
+                            'rgba(255, 206, 86, 0.2)',
+                            'rgba(75, 192, 192, 0.2)',
+                            'rgba(153, 102, 255, 0.2)'
+                        ],
+                        borderColor: [
+                            'rgba(255, 99, 132, 1)',
+                            'rgba(54, 162, 235, 1)',
+                            'rgba(255, 206, 86, 1)',
+                            'rgba(75, 192, 192, 1)',
+                            'rgba(153, 102, 255, 1)'
+                        ],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    plugins: {
+                        legend: {
+                            position: 'top',
+                        },
+                        title: {
+                            display: true,
+                            text: 'Hormone Levels in Percentage'
+                        }
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome Page</title>
+    <style>
+        body {
+            margin: 0;
+            height: 200vh; /* Increased height for scrolling effect */
+            background-color: #f0f8ff; /* Light background for contrast */
+            display: flex;
+            flex-direction: column;
+            align-items: center; /* Center items horizontally */
+            justify-content: flex-start; /* Start from the top */
+        }
+        .spacer {
+            width: 100%; /* 100% width */
+            height: 23vh; /* 30% of the viewport height */
+            background-color: transparent; /* Transparent background */
+        }
+        .logo {
+            position: absolute; /* Absolute positioning for the logo */
+            top: 5px; /* Space from the top */
+            left: 5px; /* Space from the left */
+            width: 180px; /* Set a width for the logo */
+            height: 120px; /* Maintain aspect ratio */
+        }
+        .welcome-text {
+            margin-top: 1px; /* Space below the spacer */
+            font-size: 40px; /* Increased font size for the welcome text */
+            color: #333; /* Text color */
+            text-align: center; /* Center the text */
+            font-weight: bolder;
+            font-style: italic;
+            
+        }
+        .health-facts {
+            margin-top: 12px; /* Space above the health facts */
+            font-size: 20px; /* Font size for the health facts */
+            color: #555; /* Text color for the facts */
+            max-width: 600px; /* Limit the width for better readability */
+            text-align: center; /* Center the text */
+            font-weight: bolder;
+            font-style: italic;
+        }
+        .button-container {
+            position: fixed; /* Fixes the position */
+            bottom: 20px; /* Space from the bottom */
+            left: 50%; /* Center horizontally */
+            transform: translateX(-50%); /* Adjust for centering */
+            display: flex;
+            gap: 22px;
+            text-align: center;
+        }
+        .button {
+            background-color: #00bbff; /* Blue background */
+            color: white;
+            border:dashed; /* Remove border */
+            border-radius: 30px; /* Rounded edges for cloud shape */
+            padding: 15px 35px; /* Increased padding for larger buttons */
+            font-size: 18px; /* Increased font size for buttons */
+            cursor: pointer; /* Pointer cursor on hover */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 3.0); /* Shadow for depth */
+            text-decoration: none; /* Remove underline from links */
+            transition: background-color 0.3s, transform 0.3s; /* Smooth transitions */
+        }
+        .button:hover {
+            background-color: #0056b3; /* Darker blue on hover */
+            transform: translateY(-2px); /* Lift effect on hover */
+        }
+        body {
+    margin: 0;
+    height: 100vh; /* Set height to 100% of the viewport height */
+    background: repeating-linear-gradient(
+        60deg, /* Angle of the stripes */
+        pink, /* Mint color replacing pink */
+        white 10px, 
+        white 10px, /* Color of the second stripe */
+        white 20px /* Height of the second stripe */
+    )
+}
+        
+    </style>
+</head>
+<body>
+
+    <!-- Spacer at the top -->
+    <div class="spacer"></div>
+
+    <!-- Logo Section -->
+    <a href="/moto.html"><img src="/logo.jpg" alt="Logo" class="logo"></a>
+    <!-- Welcome Text -->
+    <div class="welcome-text"><u>Welcome User!!!</u></div>
+
+    <!-- Health Facts Section -->
+    <div class="health-facts">
+        <p>1. Hydrate Yourself Regularly and drink upto 4 litres of water a day. </p>
+        <br>
+        <p>2. Do Yoga Regularly.So to maintain a healthy and a conscious mind.</p>
+        <br>
+        <p>3. Sleep 8 hrs a day for a better brain function and to enhance the skin.</p>
+        <br>
+        <p>4. Feel free to express all your problems to your personal doctor.</p>
+    </div>
+
+    <div class="button-container">
+        <a href="/date.html" class="button" target="_blank">Date (Last Occured)</a>
+        <a href="/symptoms.html" class="button" target="_blank">Symptoms</a>
+        <a href="/medications.html" class="button" target="_blank">Medications</a>
+        <a href="hormonal.html" class="button" target="_blank">Hormonal Health</a>
+    </div >
+
+</body>
+</html>

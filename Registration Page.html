@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Page</title>
+    <link rel="stylesheet" href="/registration.css">
+</head>
+<body>
+
+<div class="logo">
+    <img src="/logo.jpg" alt="Logo" width="235" height="123"> 
+</div>
+
+<div class="register-container">
+    <h2>Register</h2>
+    <form action="/registration.php" method="POST">
+        <input type="text" placeholder="Name" name="name" required>
+        <input type="number" placeholder="Age" name="age" required>
+        <input type="tel" placeholder="Phone Number" name="pn" required>
+        <input type="email" placeholder="Email" name="email" required>
+        <input type="password" placeholder="Password" name="password" required>
+        <a href="/Successful.html" target="_blank" class="button">Register</a>
+    </form>
+    <div class="login-link">
+        <p>Already have an account? <a href="/Login Page.html" target="_blank">Login</a></p>
+    </div>
+</div>
+
+</body>
+</html>
